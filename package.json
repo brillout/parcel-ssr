@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "clean": "git clean -Xdf",
+    "start": "yarn install && yarn link-plugin && yarn build",
+    "build": "rm -rf .parcel-cache/ && parcel build index.js",
+    "link-plugin": "cd parcel-plugin/ && yarn link && cd ../ && yarn link parcel-reporter-brillout"
+  },
+  "devDependencies": {
+    "core-js": "2"
+  },
+  "dependencies": {
+    "parcel": "2.0.0-alpha.2.1"
+  }
+}

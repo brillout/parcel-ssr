@@ -1,0 +1,10 @@
+{
+  "name": "parcel-reporter-brillout",
+  "version": "0.0.1",
+  "dependencies": {
+    "@parcel/plugin": "^2.0.0-alpha.2.1"
+  },
+  "engines": {
+    "parcel": "^2.0.0-alpha.2.1"
+  }
+}
