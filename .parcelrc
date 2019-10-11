@@ -1,0 +1,9 @@
+{
+  "extends": "@parcel/config-default",
+  "reporters": [
+    "@parcel/reporter-cli",
+    "@parcel/reporter-dev-server",
+    "@parcel/reporter-hmr-server",
+    "parcel-reporter-brillout"
+  ]
+}
