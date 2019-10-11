@@ -1,0 +1,25 @@
+{
+  "scripts": {
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "core-js": "2"
+  },
+  "dependencies": {
+    "parcel": "2.0.0-alpha.2.1"
+  },
+  "main": "./for-node.js",
+  "browser": "./for-browser.js",
+  "targets": {
+    "main": {
+      "engines": {
+        "node": ">=4.x"
+      }
+    },
+    "browser": {
+      "engines": {
+        "browsers": ["> 1%", "not dead"]
+      }
+    }
+  }
+}
