@@ -8,7 +8,8 @@
     "core-js": "2"
   },
   "dependencies": {
-    "parcel": "2.0.0-alpha.2.1"
+    "parcel": "2.0.0-alpha.2.1",
+    "react": "^16.11.0"
   },
   "source": "./indx.js",
   "main": "dist/for-node.js",
@@ -21,7 +22,10 @@
     },
     "browser": {
       "engines": {
-        "browsers": ["> 1%", "not dead"]
+        "browsers": [
+          "> 1%",
+          "not dead"
+        ]
       }
     }
   }
