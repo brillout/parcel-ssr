@@ -1,6 +1,8 @@
 {
+  "name": "parcel-experiment",
+  "version": "0.1.0",
   "scripts": {
-    "build": "parcel build"
+    "build": "parcel build ."
   },
   "devDependencies": {
     "core-js": "2"
