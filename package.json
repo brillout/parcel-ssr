@@ -8,8 +8,9 @@
   "dependencies": {
     "parcel": "2.0.0-alpha.2.1"
   },
-  "main": "./for-node.js",
-  "browser": "./for-browser.js",
+  "source": "./indx.js",
+  "main": "dist/for-node.js",
+  "browser": "dist/for-browser.js",
   "targets": {
     "main": {
       "engines": {
