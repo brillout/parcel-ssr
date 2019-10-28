@@ -21,6 +21,7 @@
       }
     },
     "browser": {
+      "includeNodeModules": true,
       "engines": {
         "browsers": [
           "> 1%",
