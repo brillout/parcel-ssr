@@ -22,6 +22,7 @@
     },
     "browser": {
       "includeNodeModules": true,
+      "outputFormat": "global",
       "engines": {
         "browsers": [
           "> 1%",
