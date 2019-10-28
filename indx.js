@@ -1,7 +1,5 @@
-import React from 'react'
-
-const el = React.createElement('div');
-
 console.log('bla for node/browser -- dirname:'+__dirname);
 
-export default el;
+const answer = 42;
+
+export default answer;
