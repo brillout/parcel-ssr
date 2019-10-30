@@ -6,11 +6,13 @@
     "core-js": "2"
   },
   "dependencies": {
-    "parcel": "2.0.0-alpha.2.1"
+    "parcel": "2.0.0-alpha.2.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
   },
-  "source": "./indx.js",
-  "main": "dist/for-nodejs.js",
-  "browser": "dist/for-browser.js",
+  "source": "./pages/LadingPage.js",
+  "main": "./dist/LandingPage.node.js",
+  "browser": "./dist/LandingPage.browser.js",
   "targets": {
     "browser": {
       "includeNodeModules": true,
@@ -24,7 +26,7 @@
     },
     "main": {
       "engines": {
-        "node": ">=4.x"
+        "node": ">=10.x"
       }
     }
   }
