@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "build": "yarn clean && parcel build .",
+    "clean": "rm -rf .parcel-cache/ && rm -rf dist"
+  },
+  "source": "./hydratePage.js",
+  "browser": "dist/hydratePage.js",
+  "targets": {
+    "browser": {
+      "includeNodeModules": true,
+      "outputFormat": "global",
+      "engines": {
+        "browsers": [
+          "> 1%",
+          "not dead"
+        ]
+      }
+    }
+  }
+}
