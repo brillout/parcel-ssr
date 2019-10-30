@@ -10,7 +10,7 @@ const LandingPage = () => {
    );
 };
 
-if( typeof window === "undefined" ){
+if( typeof window !== "undefined" ){
   window.__parcel_ssr__page_view = LandingPage;
 }
 

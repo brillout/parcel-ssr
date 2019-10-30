@@ -6,7 +6,10 @@ if( !window.__parcel_ssr__page_view ){
   throw new Error("Page code is missing.");
 };
 
-ReactDOM.render(
-  React.createElement(window.__parcel_ssr__page_view),
-  document.getElementById('page-view-root')
-);
+const el = React.createElement(window.__parcel_ssr__page_view);
+const container = window.document.getElementById('page-view');
+
+console.log('rel', el);
+console.log('container', container);
+
+ReactDOM.render(el, container);

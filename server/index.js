@@ -11,11 +11,13 @@ app.get('/', (req, res) => {
   const html = (
 `<html>
 <head>
-<script src="/LandingPage.browser.js"></script>
-<script src="/hydratePage.js"></script>
 </head>
 <body>
 test
+<div id="page-view">
+</div>
+<script src="/LandingPage.browser.js"></script>
+<script src="/hydratePage.js"></script>
 </body>
 </html>`
   );
