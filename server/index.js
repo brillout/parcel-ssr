@@ -11,7 +11,7 @@ app.use(express.static(distDir));
 app.get('/', (req, res) => {
   const html = render(
     distDir+'LandingPage.node.js',
-    {props: {test: 'yay'}}
+    {props: {name: 'John'}}
   );
 
   res.send(html);
