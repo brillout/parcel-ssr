@@ -12,4 +12,4 @@ const container = window.document.getElementById('page-view');
 console.log('rel', el);
 console.log('container', container);
 
-ReactDOM.render(el, container);
+ReactDOM.hydrate(el, container);

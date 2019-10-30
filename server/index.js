@@ -1,21 +1,26 @@
 const express = require('express');
 const React = require('react');
-const ReactDOM = require('react-dom');
+const ReactDOMServer = require('react-dom/server');
 
 const app = express();
 
-const distDir = __dirname+'/../dist';
+const distDir = __dirname+'/../dist/';
 app.use(express.static(distDir));
 
 app.get('/', (req, res) => {
+  const LandingPage = require(distDir+'LandingPage.node.js').default;
+
+  const el = React.createElement(LandingPage);
+
+  const viewHtml = ReactDOMServer.renderToStaticMarkup(el);
+
   const html = (
 `<html>
 <head>
 </head>
 <body>
 test
-<div id="page-view">
-</div>
+<div id="page-view">${viewHtml}</div>
 <script src="/LandingPage.browser.js"></script>
 <script src="/hydratePage.js"></script>
 </body>
