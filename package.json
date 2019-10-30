@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "yarn clean && parcel build .",
-    "clean": "rm -rf .parcel-cache/ && rm -rf dist"
+    "clean": "rm -rf .parcel-cache/"
   },
   "devDependencies": {
     "core-js": "2"
