@@ -14,8 +14,8 @@
     "devalue": "^2.0.0",
     "express": "^4.17.1",
     "parcel": "2.0.0-alpha.2.1",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0"
+    "react": "16.10.2",
+    "react-dom": "16.10.2"
   },
   "source": "./pages/LandingPage.js",
   "main": "dist/LandingPage.node.js",
