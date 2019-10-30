@@ -16,5 +16,10 @@
         ]
       }
     }
+  },
+  "dependencies": {
+    "parcel": "^2.0.0-alpha.2.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
   }
 }
