@@ -1,6 +1,7 @@
 const express = require('express');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
+const devalue = require('devalue');
 
 const app = express();
 
@@ -8,9 +9,22 @@ const distDir = __dirname+'/../dist/';
 app.use(express.static(distDir));
 
 app.get('/', (req, res) => {
-  const LandingPage = require(distDir+'LandingPage.node.js').default;
+  const html = render(
+    distDir+'LandingPage.node.js',
+    {props: {test: 'yay'}}
+  );
 
-  const el = React.createElement(LandingPage);
+  res.send(html);
+});
+
+app.listen(3000, () => {console.log('Server is running.')});
+
+function render(pageFilePath, {props}={}) {
+  const pageView = require(pageFilePath).default;
+
+  const props__serialized = devalue(props);
+
+  const el = React.createElement(pageView, props);
 
   const viewHtml = ReactDOMServer.renderToStaticMarkup(el);
 
@@ -21,12 +35,12 @@ app.get('/', (req, res) => {
 <body>
 test
 <div id="page-view">${viewHtml}</div>
+<script>window.__parcel_ssr__props=${props__serialized}</script>
 <script src="/LandingPage.browser.js"></script>
 <script src="/hydratePage.js"></script>
 </body>
 </html>`
   );
-  res.send(html);
-});
 
-app.listen(3000, () => {console.log('Server is running.')});
+  return html;
+}
