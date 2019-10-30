@@ -1,6 +1,4 @@
 {
-  "name": "parcel-experiment",
-  "version": "0.1.0",
   "scripts": {
     "build": "parcel build ."
   },
@@ -11,6 +9,7 @@
     "parcel": "2.0.0-alpha.2.1"
   },
   "source": "./indx.js",
+  "main": "dist/for-nodejs.js",
   "browser": "dist/for-browser.js",
   "targets": {
     "browser": {
@@ -21,6 +20,11 @@
           "> 1%",
           "not dead"
         ]
+      }
+    },
+    "main": {
+      "engines": {
+        "node": ">=4.x"
       }
     }
   }
