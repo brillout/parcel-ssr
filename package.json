@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "parcel build ."
+    "build": "rm -r .parcel-cache/ && parcel build ."
   },
   "devDependencies": {
     "core-js": "2"

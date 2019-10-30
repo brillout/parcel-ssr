@@ -1,7 +1,6 @@
-console.log('bla for node/browser -- dirname:'+__dirname);
-
-/*
 import React from 'react';
+
+console.log('bla for node/browser -- dirname:'+__dirname);
 
 const LandingPage = () => {
    return (
@@ -16,4 +15,3 @@ if( typeof window === "undefined" ){
 }
 
 export default LandingPage;
-*/
