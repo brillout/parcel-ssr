@@ -4,7 +4,8 @@ const ReactDOM = require('react-dom');
 
 const app = express();
 
-app.use(express.static('../dist'));
+const distDir = __dirname+'/../dist';
+app.use(express.static(distDir));
 
 app.get('/', (req, res) => {
   const html = (
