@@ -8,7 +8,7 @@ const {React, ReactDOM} = window;
 
 if( !window.__parcel_ssr__page_view ){
   throw new Error("Page code is missing.");
-};
+}
 if( !window.__parcel_ssr__props ){
   throw new Error("Props are missing.");
 }

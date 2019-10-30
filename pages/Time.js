@@ -1,3 +1,4 @@
+    console.log('ll1l');
 import React, {useEffect, useState} from 'react';
 
 export default Time;
@@ -9,6 +10,7 @@ function Time() {
   const [displayedTime, setDisplayedTime] = useState(getCurrentTime());
   useEffect(effect, []);
 
+    console.log('ss1s');
   return (
     <div>
       The time is: <span>{displayedTime}</span>
@@ -23,6 +25,7 @@ function Time() {
   }
 
   function effect() {
+    console.log('uuuu');
     const interval = setInterval(update, 30);
     return () => clearTimeout(interval);
   }

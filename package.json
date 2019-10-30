@@ -1,7 +1,11 @@
 {
   "scripts": {
-    "build": "yarn clean && parcel build .",
-    "clean": "rm -rf .parcel-cache/"
+    "build": "yarn clean && yarn build:frame && yarn build:pages",
+    "build:pages": "parcel build .",
+    "build:frame": "cd browser/ && yarn build",
+    "clean": "rm -rf .parcel-cache/ && rm -rf dist/",
+    "start": "yarn build && yarn start:server",
+    "start:server": "node ./server"
   },
   "devDependencies": {
     "core-js": "2"
