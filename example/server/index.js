@@ -8,15 +8,16 @@ app.use(express.static(distDir));
 
 app.get('/', (req, res) => {
   const html = renderHtml(
-    distDir+'LandingPage.node.js',
+    'landing',
     {props: {name: 'John'}}
   );
-
   res.send(html);
 });
 
+app.listen(3000, () => {console.log('Server is running.')});
+
 function renderHtml(page , opts) {
-  return(
+  return (
 `<html>
   <head>
   </head>
@@ -26,8 +27,4 @@ function renderHtml(page , opts) {
 </html>
 `
   );
-  renderPage
 }
-
-app.listen(3000, () => {console.log('Server is running.')});
-

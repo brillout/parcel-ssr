@@ -15,9 +15,9 @@
     "react": "16.10.2",
     "react-dom": "16.10.2"
   },
-  "source": "./pages/LandingPage.js",
-  "main": "dist/LandingPage.node.js",
-  "browser": "dist/LandingPage.browser.js",
+  "source": "./pages/landing.page.js",
+  "main": "dist/landing.page.node.js",
+  "browser": "dist/landing.page.browser.js",
   "targets": {
     "browser": {
       "includeNodeModules": true,
