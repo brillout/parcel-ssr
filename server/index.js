@@ -37,7 +37,6 @@ test
 <div id="page-view">${viewHtml}</div>
 <script>window.__parcel_ssr__props=${props__serialized}</script>
 <script src="/LandingPage.browser.js"></script>
-<script src="/hydratePage.js"></script>
 </body>
 </html>`
   );

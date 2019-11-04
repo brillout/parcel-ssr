@@ -1,16 +1,16 @@
 const {Runtime} = require('@parcel/plugin');
 const path = require('path');
+const assert = require('assert');
 
 module.exports = new Runtime({
-  apply({bundle, bundleGraph, options}) {
-    const src = bundle.getMainEntry();
-    const filePath = src.filePath;
-    const filePathRelative = path.relative(__dirname, filePath);
-    if( filePath.endsWith('LandingPage.js') ) {
+  apply({bundle, options}) {
+    const mainEntry = bundle.getMainEntry();
+    if( mainEntry.filePath.endsWith('LandingPage.js') ) {
  // if( bundle.filePath.endsWith('.page.js') ) {
+      const code = generateRuntimeCode(mainEntry);
       return {
         filePath: __filename,
-        code: "const page = require('"+filePathRelative+"');console.log('helo frm prl rtm', page);",
+        code,
         isEntry: true
       };
     }
@@ -19,4 +19,17 @@ module.exports = new Runtime({
 
 function log(msg) {
   process.stdout.write(msg+'\n');
+}
+
+function generateRuntimeCode(pageAsset) {
+  return [
+    "const page = require('"+getRequirePath(pageAsset.filePath)+"').default;",
+    "const hydratePage = require('./"+getRequirePath(require.resolve('./hydratePage'))+"').default;",
+    "hydratePage(page)",
+  ].join('\n');
+};
+
+function getRequirePath(filePath) {
+  assert(path.isAbsolute(filePath));
+  return path.relative(__dirname, filePath);
 }
