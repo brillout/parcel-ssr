@@ -1,4 +1,5 @@
 const {Runtime} = require('@parcel/plugin');
+const path = require('path');
 
 module.exports = new Runtime({
   apply({bundle, bundleGraph, options}) {
@@ -13,13 +14,15 @@ module.exports = new Runtime({
     log(src.id);
     log('ii2');
     const filePath = src.filePath;
+    const filePathRelative = path.relative(__dirname, filePath);
     log(filePath);
+    log(filePathRelative);
     log('bb');
     log('cc');
     return {
       filePath: __filename,
-      code: "const expValue = parcelRequire('"+src.id+"');console.log('helo frm prl rtm', expValue);",
-      isEntry: true
+      code: "const expValue = require('"+filePathRelative+"');console.log('helo frm prl rtm', expValue);",
+      isEntry: false
     };
   }
 });
