@@ -2,7 +2,9 @@
   "name": "parcel-experiment",
   "version": "0.1.0",
   "scripts": {
-    "build": "parcel build ."
+    "build": "yarn build:clean && yarn build:bundle",
+    "build:bundle": "parcel build .",
+    "build:clean": "rm -rf .parcel-cache/ dist/"
   },
   "devDependencies": {
     "core-js": "2"
