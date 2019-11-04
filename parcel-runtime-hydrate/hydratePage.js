@@ -1,22 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+const CONTAINER_ID = 'page-view-root';
+
 export default hydratePage;
 
-function hydratePage(page) {
+function hydratePage({page, renderToDom}) {
   if( !page ){
     throw new Error("Page code is missing.");
+  }
+  if( !renderToDom ){
+    throw new Error("`renderToDom` code is missing.");
   }
   const props = window.__parcel_ssr__props;
   if( !props ){
     throw new Error("Props are missing.");
   }
 
-  const el = React.createElement(page, props);
-  const container = window.document.getElementById('page-view');
-
-  console.log('rel', el);
-  console.log('container', container);
-
-  ReactDOM.hydrate(el, container);
+  return renderToDom({page, props, CONTAINER_ID});
 }

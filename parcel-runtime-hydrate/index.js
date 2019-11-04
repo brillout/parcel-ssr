@@ -24,8 +24,9 @@ function log(msg) {
 function generateRuntimeCode(pageAsset) {
   return [
     "const page = require('"+getRequirePath(pageAsset.filePath)+"').default;",
-    "const hydratePage = require('./"+getRequirePath(require.resolve('./hydratePage'))+"').default;",
-    "hydratePage(page)",
+    "const renderToDom = require('"+getRequirePath(require.resolve('../render/renderToDom'))+"').default;",
+    "const hydratePage = require('./hydratePage').default;",
+    "hydratePage({page, renderToDom});",
   ].join('\n');
 };
 

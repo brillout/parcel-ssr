@@ -34,7 +34,7 @@ function render(pageFilePath, {props}={}) {
 </head>
 <body>
 test
-<div id="page-view">${viewHtml}</div>
+<div id="page-view-root">${viewHtml}</div>
 <script>window.__parcel_ssr__props=${props__serialized}</script>
 <script src="/LandingPage.browser.js"></script>
 </body>
