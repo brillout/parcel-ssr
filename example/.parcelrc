@@ -1,0 +1,7 @@
+{
+  "extends": "@parcel/config-default",
+  "runtimes": {
+    "browser": ["@parcel/runtime-js", "@parcel/runtime-browser-hmr", "@parcel-ssr/parcel-runtime-hydrate"],
+    "node": ["@parcel/runtime-js"]
+  }
+}

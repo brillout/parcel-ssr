@@ -1,39 +1,11 @@
 {
   "scripts": {
-    "build": "yarn clean && yarn build:pages",
-    "build:pages": "parcel build .",
-    "clean": "rm -rf .parcel-cache/ && rm -rf dist/",
-    "start": "yarn build && yarn start:server",
-    "start:server": "node ./server"
   },
   "devDependencies": {
-    "core-js": "2"
+    "lerna": "^3.18.3"
   },
-  "dependencies": {
-    "devalue": "^2.0.0",
-    "express": "^4.17.1",
-    "parcel": "2.0.0-alpha.2.1",
-    "react": "16.10.2",
-    "react-dom": "16.10.2"
-  },
-  "source": "./pages/LandingPage.js",
-  "main": "dist/LandingPage.node.js",
-  "browser": "dist/LandingPage.browser.js",
-  "targets": {
-    "browser": {
-      "includeNodeModules": true,
-      "outputFormat": "global",
-      "engines": {
-        "browsers": [
-          "> 1%",
-          "not dead"
-        ]
-      }
-    },
-    "main": {
-      "engines": {
-        "node": ">=10.x"
-      }
-    }
-  }
+  "workspaces": [
+    "example/",
+    "packages/*"
+  ]
 }

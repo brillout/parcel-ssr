@@ -1,0 +1,12 @@
+{
+  "name": "@parcel-ssr/parcel-render",
+  "main": "./render.js",
+  "version": "0.0.1",
+  "dependencies": {
+    "@parcel/plugin": "^2.0.0-alpha.2.1",
+    "devalue": "^2.0.0"
+  },
+  "engines": {
+    "parcel": "^2.0.0-alpha.2.1"
+  }
+}
