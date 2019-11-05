@@ -7,11 +7,11 @@
     "start:server": "node ./server"
   },
   "devDependencies": {
-    "core-js": "2"
+    "core-js": "2",
+    "parcel": "2.0.0-alpha.2.1"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "parcel": "2.0.0-alpha.2.1",
     "react": "16.10.2",
     "react-dom": "16.10.2"
   },
@@ -34,6 +34,9 @@
         "node": ">=10.x"
       }
     }
-  }
+  },
+  "name": "example",
+  "version": "0.0.1",
+  "private": true
 }
 

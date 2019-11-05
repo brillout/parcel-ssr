@@ -7,5 +7,6 @@
   "workspaces": [
     "example/",
     "packages/*"
-  ]
+  ],
+  "private": true
 }
