@@ -2,7 +2,7 @@ const devalue = require('devalue');
 const {projectDir} = require('@brillout/project-files');
 const path = require('path');
 
-// TODO - read from `package.json`
+// TODO - read `dist/` from `package.json`
 const distDir = path.join(projectDir, './dist/');
 
 const CONTAINER_ID = 'page-view';
@@ -10,9 +10,12 @@ const CONTAINER_ID = 'page-view';
 module.exports = render;
 
 function render(pageName, {props}={}) {
-  const {pageBundle__nodejs, pageBundle__browser} = getPageBundleAddress();
+  const {pageBundle__nodejs, pageBundle__browser} = getPageBundleAddress(pageName);
   const page = require(pageBundle__nodejs).default;
-  const renderToHtml = require('../render/renderToHtml').default;
+
+  // TODO - how to auatomatically find `renderToHtml`? Simply by using `@brillout/project-files`?
+  const renderToHtmlFile = require.resolve(path.join(projectDir, './render/renderToHtml'));
+  const renderToHtml = require(renderToHtmlFile);
 
   const props__serialized = devalue(props);
 
@@ -34,11 +37,11 @@ function getPageBundleAddress(pageName) {
   const pageBundle__browser = path.relative(distDir, forBrowser);
   return {
     pageBundle__nodejs,
-    page__browser,
+    pageBundle__browser,
   };
 }
 
-// TODO - read from `package.json`
+// TODO - read bundle filenames from `package.json`
 function getBundlePath(pageName, {forNodejs}) {
   const suffix = forNodejs ? 'node' : 'browser';
   const fileName = pageName+'.page.'+suffix+'.js';

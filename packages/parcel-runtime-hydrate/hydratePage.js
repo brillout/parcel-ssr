@@ -1,6 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
 const CONTAINER_ID = 'page-view';
 
 export default hydratePage;

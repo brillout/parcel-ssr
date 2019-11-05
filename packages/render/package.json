@@ -1,5 +1,5 @@
 {
-  "name": "@parcel-ssr/parcel-render",
+  "name": "@parcel-ssr/render",
   "main": "./render.js",
   "version": "0.0.1",
   "dependencies": {

@@ -1,5 +1,5 @@
 {
-  "name": "@parcel-ssr/parcel-runtime-hydrate",
+  "name": "parcel-runtime-hydrate",
   "main": "./HydrateRuntime.js",
   "version": "0.0.1",
   "dependencies": {
