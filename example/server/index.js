@@ -6,11 +6,11 @@ const app = express();
 const distDir = __dirname+'/../dist/';
 app.use(express.static(distDir));
 
-app.get('/', (req, res) => {
-  const html = renderHtml(
-    'landing',
-    {props: {name: 'John'}}
-  );
+app.get('/hello/:name', (req, res) => {
+  const props = {
+    name: req.params.name,
+  };
+  const html = renderHtml('Hello', {props});
   res.send(html);
 });
 
