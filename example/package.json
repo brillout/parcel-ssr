@@ -6,14 +6,14 @@
     "clean": "rm -rf .parcel-cache/ && rm -rf dist/",
     "start:server": "node ./server"
   },
-  "devDependencies": {
-    "core-js": "2",
-    "parcel": "2.0.0-alpha.2.1"
-  },
   "dependencies": {
     "express": "^4.17.1",
     "react": "16.10.2",
     "react-dom": "16.10.2"
+  },
+  "devDependencies": {
+    "core-js": "2",
+    "parcel": "2.0.0-alpha.2.1"
   },
   "source": "./pages/landing.page.js",
   "main": "dist/landing.page.node.js",

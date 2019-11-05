@@ -2,7 +2,7 @@ const devalue = require('devalue');
 const {projectDir} = require('@brillout/project-files');
 const path = require('path');
 
-// TODO
+// TODO - read from `package.json`
 const distDir = path.join(projectDir, './dist/');
 
 const CONTAINER_ID = 'page-view';
@@ -38,7 +38,7 @@ function getPageBundleAddress(pageName) {
   };
 }
 
-// TODO
+// TODO - read from `package.json`
 function getBundlePath(pageName, {forNodejs}) {
   const suffix = forNodejs ? 'node' : 'browser';
   const fileName = pageName+'.page.'+suffix+'.js';

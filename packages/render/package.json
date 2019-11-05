@@ -3,10 +3,7 @@
   "main": "./render.js",
   "version": "0.0.1",
   "dependencies": {
-    "@parcel/plugin": "^2.0.0-alpha.2.1",
+    "@brillout/project-files": "^0.4.2",
     "devalue": "^2.0.0"
-  },
-  "engines": {
-    "parcel": "^2.0.0-alpha.2.1"
   }
 }
