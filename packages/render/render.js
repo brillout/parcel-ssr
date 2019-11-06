@@ -21,13 +21,15 @@ function render(pageName, {props}={}) {
 
   const pageViewHtml = renderToHtml({page, props});
 
-  const html = (
-`<div id="${CONTAINER_ID}">${pageViewHtml}</div>
-<script>window.__parcel_ssr__props=${props__serialized}</script>
-<script src="${pageBundle__browser}"></script>`
-  );
+  const pageHtml = `<div id="${CONTAINER_ID}">${pageViewHtml}</div>`;
+  const pageHydration = [
+    `<script>window.__parcel_ssr__props=${props__serialized}</script>`,
+    `<script src="${pageBundle__browser}"></script>`,
+  ].join('\n');
 
-  return html;
+  const body = pageHtml + '\n' + pageHydration;
+
+  return {pageHtml, pageHydration, body};
 }
 
 function getPageBundleAddress(pageName) {
