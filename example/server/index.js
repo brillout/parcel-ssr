@@ -19,7 +19,7 @@ app.get('/hello/:name', (req, res) => {
   const props = {
     name: req.params.name,
   };
-  const {body} = render('Hello', {props});
+  const body = render('Hello', {props, doNotHydrate: false});
   res.send(htmlDoc(body));
 });
 

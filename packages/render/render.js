@@ -9,7 +9,7 @@ const CONTAINER_ID = 'page-view';
 
 module.exports = render;
 
-function render(pageName, {props}={}) {
+function render(pageName, {props, doNotHydrate=false}={}) {
   const {pageBundle__nodejs, pageBundle__browser} = getPageBundleAddress(pageName);
   const page = require(pageBundle__nodejs).default;
 
@@ -27,9 +27,11 @@ function render(pageName, {props}={}) {
     `<script src="${pageBundle__browser}"></script>`,
   ].join('\n');
 
-  const body = pageHtml + '\n' + pageHydration;
-
-  return {pageHtml, pageHydration, body};
+  if( doNotHydrate ) {
+    return pageHtml;
+  } else {
+    return pageHtml + '\n' + pageHydration;
+  }
 }
 
 function getPageBundleAddress(pageName) {
