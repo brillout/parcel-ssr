@@ -6,6 +6,14 @@ const app = express();
 const distDir = __dirname+'/../dist/';
 app.use(express.static(distDir));
 
+app.get('/', (req, res) => {
+  res.send(
+    ['Lisa', 'John']
+    .map(name => '<a href="/hello/'+name+'">/hello/'+name+'</a><br/>')
+    .join('\n')
+  );
+});
+
 app.get('/hello/:name', (req, res) => {
   const props = {
     name: req.params.name,

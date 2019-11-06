@@ -34,7 +34,7 @@ function getPageBundleAddress(pageName) {
   const pageBundle__nodejs = getBundlePath(pageName, {forNodejs: true});
   const forBrowser = getBundlePath(pageName, {forNodejs: false});
 
-  const pageBundle__browser = path.relative(distDir, forBrowser);
+  const pageBundle__browser = '/'+path.relative(distDir, forBrowser);
   return {
     pageBundle__nodejs,
     pageBundle__browser,

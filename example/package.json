@@ -3,7 +3,7 @@
     "start": "yarn build && yarn start:server",
     "build": "yarn clean && yarn build:pages",
     "build:pages": "parcel build .",
-    "clean": "rm -rf .parcel-cache/ && rm -rf dist/",
+    "clean": "rm -rf ../.parcel-cache/ && rm -rf dist/",
     "start:server": "node ./server"
   },
   "dependencies": {
@@ -15,9 +15,9 @@
     "core-js": "2",
     "parcel": "2.0.0-alpha.2.1"
   },
-  "source": "./pages/landing.page.js",
-  "main": "dist/landing.page.node.js",
-  "browser": "dist/landing.page.browser.js",
+  "source": "./pages/Hello.page.js",
+  "main": "dist/Hello.page.node.js",
+  "browser": "dist/Hello.page.browser.js",
   "targets": {
     "browser": {
       "includeNodeModules": true,
