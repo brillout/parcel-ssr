@@ -1,13 +1,9 @@
 import React from 'react';
 import Time from './Time';
 
-const LandingPage = ({name}) => {
-   return <>
-     <div>
-       Hello {name} from Parcel SSR!
-     </div>
-     <Time/>
-   </>;
-};
+const HelloPage = ({name}) => <>
+  Hello {name}
+  <Time/>
+</>;
 
-export default LandingPage;
+export default HelloPage;
