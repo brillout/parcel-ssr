@@ -1,6 +1,6 @@
-# Parcel SSR
-
 > :warning: This is an experiment. Do not use in production.
+
+# Parcel SSR
 
 `@parcel-ssr` is an SSR tool. Based on Parcel. Tiny yet powerful.
 
@@ -12,7 +12,7 @@
 
 `@parcel-ssr` is a low-level tool aimed for:
 - End users that want full control/freedom.
-- High-level SSR/SSG frameworks. (For example, it would be awesome if Next.js/Nuxt eventually replace Webpack with Parcel & `@parcel-ssr`.)
+- High-level SSR/SSG frameworks. (For example, Next.js/Nuxt could replace Webpack with Parcel & `@parcel-ssr`.)
 
 # Usage
 
