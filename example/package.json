@@ -37,9 +37,10 @@
   },
   "name": "example",
   "version": "0.0.1",
-  "parcelSSR": {
-    "renderToDom": "render/renderToDomewuqh.js",
-    "renderToHtml": "render/renderToHtmlaaaa.js"
+  "// This is a temporary hack until support for .parcel-ssr.json is implemented": "",
+  ".parcel-ssr.json": {
+    "renderToDom": "render/renderToDom.js",
+    "renderToHtml": "render/renderToHtml.js"
   },
   "private": true
 }
