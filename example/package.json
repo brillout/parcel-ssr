@@ -37,6 +37,9 @@
   },
   "name": "example",
   "version": "0.0.1",
+  "parcelSSR": {
+    "renderToDom": "render/renderToDomewuqh.js",
+    "renderToHtml": "render/renderToHtmlaaaa.js"
+  },
   "private": true
 }
-

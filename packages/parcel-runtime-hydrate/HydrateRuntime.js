@@ -3,8 +3,19 @@ const path = require('path');
 const assert = require('assert');
 
 module.exports = new Runtime({
-  apply({bundle}) {
+  async apply({bundle, options}) {
     const mainEntry = bundle.getMainEntry();
+    const pkg = await mainEntry.getPackage();
+    log(Object.keys(pkg));
+    log(pkg.parcelSSR.renderToHtml);
+    log(pkg.parcelSSR.renderToDom);
+    log(pkg.name);
+    const baseDir = getBaseDir(options);
+    log(baseDir);
+    log(baseDir==='');
+    log(JSON.stringify(baseDir));
+    const renderToDomPath = await options.packageManager.resolve('./render/renderToDom.js'/*pkg.parcelSSR.renderToDom*/, baseDir);
+    console.log(renderToDomPath);
     if( !isPage(mainEntry) ) {
       return;
     }
@@ -51,6 +62,11 @@ function isPage(mainEntry) {
   assert(isPageFile('landing.page.tsx')===true);
   return isPageFile(fileName);
   function isPageFile(fileName) { return fileName.split('.').includes('page'); }
+}
+
+function getBaseDir(options) {
+  assert(options.projectRoot===options.rootDir);
+  return options.projectRoot;
 }
 
 function generateRuntimeCode(pageAsset) {
