@@ -11,7 +11,7 @@ module.exports = new Runtime({
     // getUserFiles({options});
     return {
       filePath: __filename,
-      code: generateRuntimeCode({mainEntry, options}),
+      code: await generateRuntimeCode({mainEntry, options}),
       isEntry: true
     };
   }
@@ -35,11 +35,14 @@ function getBaseDir(options) {
   return options.projectRoot;
 }
 
-function generateRuntimeCode({mainEntry, options}) {
+async function generateRuntimeCode({mainEntry, options}) {
+  const page__path = mainEntry.filePath;
+  const renderToDom__path = await get_renderToDom__path({mainEntry, options});
   return [
-    // TODO - use `addIncludedFile` for `mainEntry`
-    "const page = require('"+getRequirePath(mainEntry.filePath)+"').default;",
-    "const renderToDom = require('"+getRequirePath(require.resolve('../../example/render/renderToDom'))+"').default;",
+    // TODO - use `addIncludedFile` to enable watching for `page__path` and `renderToDom__path`
+    //  - But: `config.addIncludedFile` is not availble to Runtime
+    "const page = require('"+getRequirePath(page__path)+"').default;",
+    "const renderToDom = require('"+getRequirePath(renderToDom__path)+"').default;",
 
     "const hydratePage = require('./hydratePage').default;",
     "hydratePage({page, renderToDom});",
@@ -47,7 +50,31 @@ function generateRuntimeCode({mainEntry, options}) {
 };
 function getRequirePath(filePath) {
   assert(path.isAbsolute(filePath));
+  // Ensure that file exists
+  require.resolve(filePath);
   return path.relative(__dirname, filePath);
+}
+async function get_renderToDom__path({mainEntry, options}) {
+  // TODO: use `loadConfig` to load a `.parcel-ssr.json` file
+  //  - But: `loadConfig` is not available to Runtime
+  const pkg = await mainEntry.getPackage();
+  const ssrConfig = pkg['.parcel-ssr.json'];
+  assert(ssrConfig);
+  let renderToDom__path = ssrConfig.renderToDom;
+  assert(renderToDom__path);
+
+  let baseDir = getBaseDir(options);
+  assert(path.isAbsolute(baseDir));
+  // TODO - right a proper fix
+  //  - But: there seem to be no way to get the package.json path
+  baseDir = path.join(baseDir, 'example');
+  // Ensure that baseDir is correct
+  assert(require(path.join(baseDir, 'package.json'))['.parcel-ssr.json'].renderToDom === renderToDom__path);
+
+  renderToDom__path = path.join(baseDir, renderToDom__path);
+  assert(path.isAbsolute(renderToDom__path));
+
+  return renderToDom__path;
 }
 
 function log(msg) {
@@ -84,24 +111,5 @@ async loadConfig({config, options}) {
   function resolve(id) {
     return options.packageManager.resolve(id, config.searchPath);
   }
-}
-*/
-
-/*
-function getUserFiles({options}) {
-  const pkg = await mainEntry.getPackage();
-  log(Object.keys(pkg));
-  log(pkg.parcelSSR.renderToHtml);
-  log(pkg.parcelSSR.renderToDom);
-  log(pkg.name);
-  const baseDir = getBaseDir(options);
-  log(baseDir);
-  log(baseDir==='');
-  log(JSON.stringify(baseDir));
-  const pathRelative = pkg.parcelSSR.renderToDom;
-//const pathRelative = './render/renderToDom.js';
-  const renderToDomPath = await options.packageManager.resolve(pathRelative, baseDir);
-  console.log(renderToDomPath);
-  return renderToDomPath;
 }
 */
