@@ -140,7 +140,7 @@ The `render` function enables you to easily achieve Server-Side Rendering (SSR) 
 To do SSR, simply use your server's router and apply the `render` function:
 
 ~~~js
-// server/start.js
+// server/index.js
 
 const express = require('express');
 const render = require('@parcel-ssr/render');
@@ -173,7 +173,7 @@ $ parcel build
 ~~~
 Then run your server:
 ~~~shell
-$ node server/start.js
+$ node server/index.js
 ~~~
 
 ### Static Rendering (SR)
