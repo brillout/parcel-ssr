@@ -8,7 +8,7 @@
     any view library (React, Vue, RNW, Svelte, etc.),
     any view tool (Redux, Vuex, etc.),
     and any server framework (Express, Koa, Hapi, etc.).
-  - You can choose when and where your pages are rendered: for examle, one page can be rendered to HTML and to the DOM (classic SSR), another page can be rendered to HTML only (no browser-side JavaScript for blazing fast mobile performance), and a third page can be rendered to the DOM only.
+  - You can choose when and where your pages are rendered: one page can be rendered to HTML and to the DOM (classic SSR), another page can be rendered to HTML only (no browser-side JavaScript for blazing fast mobile performance), and a third page can be rendered to the DOM only.
   - You can use `@parcel-ssr` to generate a static website.
 
 > :warning: This project is experimental.
