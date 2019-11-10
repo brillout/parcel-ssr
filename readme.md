@@ -1,5 +1,7 @@
 > :warning: This is an experiment. Do not use in production.
 
+# `@parcel-ssr`
+
 `@parcel-ssr` is a tiny yet powerful SSR tool based on Parcel.
 
 - Tiny: it's only few hundreds of LOCs.
@@ -12,14 +14,16 @@
 - End-users that want full control and freedom.
 - High-level framework authors, such as Next.js or Nuxt.
 
+<br/>
+
 - Usage
   - [`render`](#render)
-  - [`Server-Side Rendering (SSR)`](#server-side-rendering-ssr)
-  - [`Static Rendering (SR)`](#static-rendering-sr)
+  - [Server-Side Rendering (SSR)](#server-side-rendering-ssr)
+  - [Static Rendering (SR)](#static-rendering-sr)
 
 ## Usage
 
-#### `render`
+### `render`
 
 At the heart of `parcel-ssr` is the `render` function:
 
@@ -126,7 +130,7 @@ function renderToHtml({page, props}) {
 
 The `render` function enables you to easily achieve Server-Side Rendering (SSR) and Static Rendering (SR).
 
-#### Server-Side Rendering (SSR)
+### Server-Side Rendering (SSR)
 
 To do SSR, simply use your server's router and apply the `render` function:
 
@@ -156,7 +160,7 @@ function htmlDoc(body) {
 }
 ~~~
 
-#### Static Rendering (SR)
+### Static Rendering (SR)
 
 > :warning: This feature is not implemented yet.
 
