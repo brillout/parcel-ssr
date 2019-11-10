@@ -1,6 +1,6 @@
 # `@parcel-ssr`
 
-`@parcel-ssr` is a tiny yet powerful SSR tool based on Parcel.
+`@parcel-ssr` is a tiny yet powerful SSR tool based on Parcel v2.
 
 - Tiny: it's only few hundreds LOCs.
 - Powerful:
@@ -180,8 +180,9 @@ async function staticRender() {
     {slug: 'why-parcel', title: 'Why SSR with Parcel',
      markdown: "Parcel's Zero-config philosophy..."},
   ].forEach(({slug, title, markdown}) => {
-    // We render each blog post to an HTML file `blog/${slug}.html`:
     const props = {title, markdown};
+    // We render each blog post to an HTML file `blog/${slug}.html`.
+    // The blog post is then available at `https://example.org/blog/${slug}`.
     pages['/blog/'+slug] = render('BlogPost', {props});
   });
 
@@ -193,12 +194,12 @@ async function staticRender() {
 }
 ~~~
 
-Note how we use the `doNoHydrate` option to make our pages `/about` and `/` static:
+Note how we use `doNoHydrate` to make our pages `/about` and `/` static:
 they are not rendered to the DOM but only to HTML and have zero browser-side JavaScript.
 (Good old plain HTML like in the 90s!)
-We do hydrate our blog posts to enable interactive blog posts.
+We do hydrate our blog to enable interactive blog posts.
 
-`staticRender` allows you to build a Static Website: if you render all your pages with `staticRender` then you app is static and no Node.js server is required; you can deploy your app to a static host such as Netlify.
+`staticRender` allows you to build a static website: if you render all your pages at build-time with `staticRender` then you app is static. No Node.js server is required and you can deploy your app to a static host such as Netlify.
 
 Run Parcel to build your static website:
 ~~~shell
