@@ -1,18 +1,21 @@
-> :warning: This is an experiment.
-
 # `@parcel-ssr`
 
 `@parcel-ssr` is a tiny yet powerful SSR tool based on Parcel.
 
-- Tiny: it's only few hundreds of LOCs.
+- Tiny: it's only few hundreds LOCs.
 - Powerful:
-  - Works with any view library (React, Vue, RNW, Svelte, etc.), any server framework (Express, Koa, Hapi, etc.), any view tool (Redux, Vuex, etc.).
-  - You can choose to render where to render your pages. For examle, one page can be rendered to HTML and the DOM (classic SSR), another page can be rendered to HTML only (no browser-side JavaScript for blazing fast mobile performance), and a third page can be rendered to the DOM only.
-  - You can generate a Static Website.
+  - It works with
+    any view library (React, Vue, RNW, Svelte, etc.),
+    any view tool (Redux, Vuex, etc.),
+    any server framework (Express, Koa, Hapi, etc.).
+  - You can choose when and where you render your pages. For examle, one page can be rendered to HTML and the DOM (classic SSR), another page can be rendered to HTML only (no browser-side JavaScript for blazing fast mobile performance), and a third page can be rendered to the DOM only.
+  - It can generate a Static Website.
 
 `@parcel-ssr` is a low-level tool aimed for:
-- End-users that want full control and freedom.
+- End-users that want control and freedom.
 - High-level framework authors, such as Next.js or Nuxt.
+
+> :warning: This project is experimental.
 
 <br/>
 
@@ -25,14 +28,16 @@
 
 ### `render`
 
-At the heart of `parcel-ssr` is the `render` function:
+At the heart of `@parcel-ssr` is the `render` function:
 
 ~~~jsx
 // pages/hello/Hello.page.js
 
-// We use React in this example.
-// But we can use any view library such as Vue, RNW, etc.
-import React from 'react';
+// We first define a page.
+
+// We use React in this example but we could use
+// any other view library such as Vue, RNW, etc.
+import React, {useState} from 'react';
 
 const HelloPage = ({name}) => <>
   Hello {name}
@@ -135,6 +140,8 @@ The `render` function enables you to easily achieve Server-Side Rendering (SSR) 
 To do SSR, simply use your server's router and apply the `render` function:
 
 ~~~js
+// server/start.js
+
 const express = require('express');
 const render = require('@parcel-ssr/render');
 
@@ -158,6 +165,15 @@ function htmlDoc(body) {
 `
   );
 }
+~~~
+
+Build your pages:
+~~~shell
+$ parcel build
+~~~
+Then run your server:
+~~~shell
+$ node server/start.js
 ~~~
 
 ### Static Rendering (SR)
@@ -201,3 +217,7 @@ they are not rendered to the DOM but only to HTML and have zero browser-side Jav
 (Good old plain HTML like in the 90s!)
 We do hydrate our blog posts to enable interactive blog posts.
 
+You can now run Parcel to build your static website:
+~~~shell
+$ parcel build
+~~~
