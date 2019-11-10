@@ -61,8 +61,8 @@ const htmlBody = render(
   'HelloPage',
   {
     props: {name: 'John'},
-    // Set `doNoHydrate: true` for non-interactive pages. (The page is then rendered only to HTML.)
-    // Set `doNoHydrate: false` for interactive pages. (The page is then rendered to HTML and to the DOM.)
+    // Set `doNoHydrate: true` for non-interactive pages. (The page is rendered only to HTML.)
+    // Set `doNoHydrate: false` for interactive pages. (The page is rendered to HTML and to the DOM.)
     doNoHydrate: false
   }
 );
