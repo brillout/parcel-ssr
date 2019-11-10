@@ -1,20 +1,22 @@
 > :warning: This is an experiment. Do not use in production.
 
-# Parcel SSR
+## Intro
 
-`@parcel-ssr` is an SSR tool. Based on Parcel. Tiny yet powerful.
+`@parcel-ssr` is a tiny yet powerful SSR tool based on Parcel.
 
-- Tiny: `@parcel-ssr` is only ~1k LOCs. (This experiment has less LOCs &mdash; I estime the production-ready release to have ~1k LOCs.)
+- Tiny: it's only few hundreds of LOCs.
 - Powerful:
-  - Works with any view library (React, Vue, RNW, Svelte, etc.), any server framework (Express, Koa, Hapi, etc.), any view tool (Redux, Vuex, etc.). You can render pages to HTML only (for super fast mobile pages)
-  - You can choose to render where to render your pages. For examle, one page can be rendered to HTML and DOM (classic SSR), another page can be rendered to HTML only (for blazing fast mobile pages by eliminating browser-side JavaScript), and a third page can be rendered to the DOM only.
-  - You can render your pages to HTML at build-time in order to generate a Static Website and deploy to a static host such as Netlify.
+  - Works with any view library (React, Vue, RNW, Svelte, etc.), any server framework (Express, Koa, Hapi, etc.), any view tool (Redux, Vuex, etc.).
+  - You can choose to render where to render your pages. For examle, one page can be rendered to HTML and the DOM (classic SSR), another page can be rendered to HTML only (no browser-side JavaScript for blazing fast mobile performance), and a third page can be rendered to the DOM only.
+  - You can generate a Static Website.
 
 `@parcel-ssr` is a low-level tool aimed for:
-- End users that want full control/freedom.
-- High-level SSR/SSG frameworks. (For example, Next.js/Nuxt could replace Webpack with Parcel & `@parcel-ssr`.)
+- End-users that want full control and freedom.
+- High-level framework authors, such as Next.js or Nuxt.
 
-# Usage
+## Usage
+
+
 
 Usage happens in 3 steps.
 
@@ -172,7 +174,7 @@ We now show how we can use `@parcel-ssr/render` to do Server-side Rendering and 
 
 # SR (Static Rendering)
 
-> :warning: This is not implemented yet; this is an API proposal for doing static rendering with `@parcel-ssr`.
+> :warning: This feature is not implemented yet.
 
 ~~~js
 
