@@ -7,12 +7,12 @@
   - It works with
     any view library (React, Vue, RNW, Svelte, etc.),
     any view tool (Redux, Vuex, etc.),
-    any server framework (Express, Koa, Hapi, etc.).
-  - You can choose when and where you render your pages. For examle, one page can be rendered to HTML and the DOM (classic SSR), another page can be rendered to HTML only (no browser-side JavaScript for blazing fast mobile performance), and a third page can be rendered to the DOM only.
+    and any server framework (Express, Koa, Hapi, etc.).
+  - You can choose when and where your pages are rendered: for examle, one page can be rendered to HTML and to the DOM (classic SSR), another page can be rendered to HTML only (no browser-side JavaScript for blazing fast mobile performance), and a third page can be rendered to the DOM only.
   - It can generate a Static Website.
 
 `@parcel-ssr` is a low-level tool aimed for:
-- End-users that want control and freedom.
+- End-users who want control and freedom.
 - High-level framework authors, such as Next.js or Nuxt.
 
 > :warning: This project is experimental.
@@ -65,22 +65,19 @@ const htmlBody = render(
   'HelloPage',
   {
     props: {name: 'John'},
-    // Whether or not we want to hydrate our page.
-    // Set `doNoHydrate: true` for non-interactive pages.
-    // (The page is then rendered only to HTML.)
-    // Set `doNoHydrate: false` for interactive pages
-    // (The page is then rendered to HTML and to the DOM.)
+    // Set `doNoHydrate: true` for non-interactive pages. (The page is then rendered only to HTML.)
+    // Set `doNoHydrate: false` for interactive pages. (The page is then rendered to HTML and to the DOM.)
     doNoHydrate: false
   }
 );
 
-// The `HelloPage-hydrate.js` script hydrates the page, enabling
-// interactivity such as `<Counter/>`, a like button, a date picker, etc.
 assert(htmlBody===[
   '<div id="page-view">',
   'Hello John',
   '<div>0<button>Click me</button>'
   '</div>',
+  // The `HelloPage-hydrate.js` script hydrates the page, enabling
+  // interactivity such as `<Counter/>`, a like button, a date picker, etc.
   '<script src="/HelloPage-hydrate.js"></script>',
 ].join(''));
 
@@ -88,23 +85,18 @@ const html = (
 `<html>
   <body>${htmlBody}</body>
 </html>
-`
-);
+`);
 ~~~
 
 The `render` function uses two functions `renderToHtml` and `renderToDom` that *you* define.
-This gives you
-full control over how your pages are rendered
-and allows you to use `@parcel-srr` with any view library/tool you want;
-you can use
-React, Vue, RNW, Svelte, etc. and easily integrate
-Redux, Vuex, React Router, Vuex, GraphQL, etc.
+Because these functions are defined by you,
+you have full control over how your pages are rendered.
+This allows you to use `@parcel-srr` with any view library/tool you want.
 
 ~~~js
 // render/renderToDom.js
 
-// We use React to render our pages but we could use any other
-// view library such as Vue, RNW, etc.
+// We use React to render our pages but we could use Vue, RNW, etc.
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -133,11 +125,11 @@ function renderToHtml({page, props}) {
 }
 ~~~
 
-The `render` function enables you to easily achieve Server-Side Rendering (SSR) and Static Rendering (SR).
+With the `render` function you can easily do Server-Side Rendering (SSR) and Static Rendering (SR).
 
 ### Server-Side Rendering (SSR)
 
-To do SSR, simply use your server's router and apply the `render` function:
+To do SSR, simply use your server's router:
 
 ~~~js
 // server/index.js
@@ -152,10 +144,6 @@ app.get('/hello/:name', (req, res) => {
   const body = render('Hello', {props});
   res.send(htmlDoc(body));
 });
-
-app.use(express.static(__dirname+'/../dist/'));
-
-app.listen(3000, () => {console.log('Server is running.')});
 
 function htmlDoc(body) {
   return (
@@ -181,7 +169,6 @@ $ node server/index.js
 > :warning: This feature is not implemented yet.
 
 By defining the `staticRender` function you can generate pages at build-time.
-This allows you to build a Static Website: if you render all your pages with `staticRender` then you app is static and no Node.js server is required; you can deploy your app to a static host such as Netlify.
 
 ~~~js
 // render/staticRender.js
@@ -193,7 +180,7 @@ module.exports = staticRender;
 async function staticRender() {
   [
     {slug: 'intro', title: 'Introducing @parcel-ssr',
-     markdown: '`parcel-ssr` is a SSR tiny yet powerful tool...'},
+     markdown: '`parcel-ssr` is a tiny yet powerful tool...'},
     {slug: 'why-parcel', title: 'Why SSR with Parcel',
      markdown: "Parcel's Zero-config philosophy..."},
   ].forEach(({slug, title, markdown}) => {
@@ -202,10 +189,8 @@ async function staticRender() {
     pages['/blog/'+slug] = render('BlogPost', {props});
   });
 
-  // Generates the `index.html`
+  // Generate `index.html` and `about.html`
   pages['/'] = render('Landing', {doNoHydrate: true});
-
-  // Generates `about.html`
   pages['/about'] = render('About', {doNoHydrate: true});
 
   return pages;
@@ -217,7 +202,9 @@ they are not rendered to the DOM but only to HTML and have zero browser-side Jav
 (Good old plain HTML like in the 90s!)
 We do hydrate our blog posts to enable interactive blog posts.
 
-You can now run Parcel to build your static website:
+`staticRender` allows you to build a Static Website: if you render all your pages with `staticRender` then you app is static and no Node.js server is required; you can deploy your app to a static host such as Netlify.
+
+Run Parcel to build your static website:
 ~~~shell
 $ parcel build
 ~~~
