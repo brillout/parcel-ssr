@@ -1,4 +1,4 @@
-> :warning: This is an experiment. Do not use in production.
+> :warning: This is an experiment.
 
 # `@parcel-ssr`
 
@@ -16,12 +16,12 @@
 
 <br/>
 
-- Usage
-  - [`render`](#render)
-  - [Server-Side Rendering (SSR)](#server-side-rendering-ssr)
-  - [Static Rendering (SR)](#static-rendering-sr)
-
 ## Usage
+
+**Contents**
+- [`render`](#render)
+- [Server-Side Rendering (SSR)](#server-side-rendering-ssr)
+- [Static Rendering (SR)](#static-rendering-sr)
 
 ### `render`
 
