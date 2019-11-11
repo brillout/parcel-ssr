@@ -30,8 +30,7 @@ At the heart of `@parcel-ssr` is the `render` function:
 
 // We first define a page.
 
-// We use React in this example but we could use
-// any other view library such as Vue, RNW, etc.
+// We use React in this example but we could use any other view library such as Vue, RNW, etc.
 import React, {useState} from 'react';
 
 const HelloPage = ({name}) => (
