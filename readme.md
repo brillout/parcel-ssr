@@ -5,10 +5,10 @@
 - Simple &mdash; Parcel's zero-config means that build just works. No more complex webpack configurations.
 - Powerful:
   - It works with
-    any view library (React, Vue, RNW, Svelte, ...),
-    any view tool (Redux, Vuex, ...),
+    any view framework (React, Vue, RNW, Svelte, ...),
+    any view library (React Router, Vuex, Redux, GraphQL, ...)
     and any server framework (Express, Koa, Hapi, ...).
-  - You can choose when and where your pages are rendered: one page can be rendered to HTML and to the DOM (classic SSR), another page can be rendered to HTML only (no browser-side JavaScript for blazing fast mobile performance), and a third page can be rendered to the DOM only.
+  - You can choose when and where your pages are rendered: one page can be rendered to HTML and to the DOM (classic SSR), another page can be rendered to HTML only (no browser-side JavaScript for a blazing fast mobile page), and a third page can be rendered to the DOM only.
   - You can use `@parcel-ssr` to generate a static website.
 
 > :warning: This project is experimental.
