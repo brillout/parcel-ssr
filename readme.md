@@ -35,10 +35,10 @@ At the heart of `@parcel-ssr` is the `render` function:
 import React, {useState} from 'react';
 
 const HelloPage = ({name}) => (
-  <>
+  <div>
     Hello {name}
     <Counter/>
-  </>
+  </div>
 );
 
 function Counter() {
@@ -49,7 +49,7 @@ function Counter() {
       <button onClick={() => setCount(count + 1)}>
         Click me
       </button>
-    <div/>
+    </div>
   );
 }
 
