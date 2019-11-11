@@ -1,7 +1,7 @@
 # `@parcel-ssr`
 
 `@parcel-ssr` is an SSR tool based on Parcel v2. It's tiny yet powerful:
-- Tiny &mdash;: only few hundreds LOCs.
+- Tiny &mdash; only few hundreds LOCs.
 - Powerful:
   - It works with
     any view library (React, Vue, RNW, Svelte, etc.),
