@@ -59,25 +59,24 @@ export default Hello;
 ~~~js
 const render = require('@parcel-ssr/render');
 
-const htmlBody = render('Hello', {
+const body = render('Hello', {
   props: {name: 'John'},
   // Set `doNoHydrate: true` for non-interactive pages. (The page is rendered only to HTML.)
   // Set `doNoHydrate: false` for interactive pages. (The page is rendered to HTML and to the DOM.)
-  doNoHydrate: false
+  doNoHydrate: false,
 });
-assert(htmlBody===[
+assert(body===[
   '<div id="page-view">',
   'Hello John',
   '<div>0<button>Click me</button></div>'
   '</div>',
-  // The `Hello-hydrate.js` script hydrates the page, enabling interactivity
-  // such as `<Counter/>`, a like button, a date picker, ...
+  // The `Hello-hydrate.js` script hydrates the page, enabling `<Counter/>` to be interactive.
   '<script src="/Hello-hydrate.js"></script>',
 ].join(''));
 
 const html = (
 `<html>
-  <body>${htmlBody}</body>
+  <body>${body}</body>
 </html>`
 );
 ~~~
@@ -85,7 +84,7 @@ const html = (
 The `render` function uses two functions, `renderToHtml` and `renderToDom`, that *you* define.
 This gives you
 full control over how your pages are rendered
-and allows you to use `@parcel-srr` with any view and tool you want.
+and allows you to use `@parcel-srr` with any view tool you want.
 
 ~~~js
 // render/renderToDom.js
@@ -119,7 +118,7 @@ function renderToHtml({page, props}) {
 }
 ~~~
 
-With the `render` function,
+Using the `render` function
 you can easily perform Server-Side Rendering (SSR) and Static Rendering (SR).
 
 ### Server-Side Rendering (SSR)
