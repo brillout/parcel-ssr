@@ -1,12 +1,13 @@
 # `@parcel-ssr`
 
-`@parcel-ssr` is an SSR tool based on Parcel v2. It's tiny yet powerful:
+`@parcel-ssr` is an SSR tool based on Parcel v2. It's tiny, simple, and powerful:
 - Tiny &mdash; only few hundreds LOCs.
+- Simple &mdash; Parcel Zero-config
 - Powerful:
   - It works with
-    any view library (React, Vue, RNW, Svelte, etc.),
-    any view tool (Redux, Vuex, etc.),
-    and any server framework (Express, Koa, Hapi, etc.).
+    any view library (React, Vue, RNW, Svelte, ...),
+    any view tool (Redux, Vuex, ...),
+    and any server framework (Express, Koa, Hapi, ...).
   - You can choose when and where your pages are rendered: one page can be rendered to HTML and to the DOM (classic SSR), another page can be rendered to HTML only (no browser-side JavaScript for blazing fast mobile performance), and a third page can be rendered to the DOM only.
   - You can use `@parcel-ssr` to generate a static website.
 
@@ -30,7 +31,7 @@ At the heart of `@parcel-ssr` is the `render` function:
 
 // We first define a page.
 
-// We use React in this example but we could use any other view library (Vue, RNW, etc.)
+// We use React in this example but we could use any other view library (Vue, RNW, ...)
 import React, {useState} from 'react';
 
 const HelloPage = ({name}) => (
@@ -74,7 +75,7 @@ assert(htmlBody===[
   '<div>0<button>Click me</button></div>'
   '</div>',
   // The `HelloPage-hydrate.js` script hydrates the page, enabling interactivity
-  // such as `<Counter/>`, a like button, a date picker, etc.
+  // such as `<Counter/>`, a like button, a date picker, ...
   '<script src="/HelloPage-hydrate.js"></script>',
 ].join(''));
 
@@ -93,7 +94,7 @@ and allows you to use `@parcel-srr` with any view and tool you want.
 ~~~js
 // render/renderToDom.js
 
-// We use React to render our pages but we could use Vue, RNW, etc.
+// We use React to render our pages but we could use Vue, RNW, ...
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -132,7 +133,7 @@ To achieve SSR, simply use the `render` function with your server's router:
 ~~~js
 // server/index.js
 
-// We use Express in this example but we could use any other server framework (Koa, Hapi, etc.)
+// We use Express in this example but we could use any other server framework (Koa, Hapi, ...)
 const express = require('express');
 const render = require('@parcel-ssr/render');
 
