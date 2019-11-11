@@ -59,15 +59,12 @@ export default Hello;
 ~~~js
 const render = require('@parcel-ssr/render');
 
-const htmlBody = render(
-  'Hello',
-  {
-    props: {name: 'John'},
-    // Set `doNoHydrate: true` for non-interactive pages. (The page is rendered only to HTML.)
-    // Set `doNoHydrate: false` for interactive pages. (The page is rendered to HTML and to the DOM.)
-    doNoHydrate: false
-  }
-);
+const htmlBody = render('Hello', {
+  props: {name: 'John'},
+  // Set `doNoHydrate: true` for non-interactive pages. (The page is rendered only to HTML.)
+  // Set `doNoHydrate: false` for interactive pages. (The page is rendered to HTML and to the DOM.)
+  doNoHydrate: false
+});
 assert(htmlBody===[
   '<div id="page-view">',
   'Hello John',
