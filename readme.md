@@ -34,19 +34,23 @@ At the heart of `@parcel-ssr` is the `render` function:
 // any other view library such as Vue, RNW, etc.
 import React, {useState} from 'react';
 
-const HelloPage = ({name}) => <div>
-  Hello {name}
-  <Counter/>
-</div>;
+const HelloPage = ({name}) => (
+  <>
+    Hello {name}
+    <Counter/>
+  </>
+);
 
 function Counter() {
   const [count, setCount] = useState(0);
-  return <div>
-    {count}
-    <button onClick={() => setCount(count + 1)}>
-      Click me
-    </button>
-  <div/>;
+  return (
+    <div>
+      {count}
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    <div/>
+  );
 }
 
 export default HelloPage;
