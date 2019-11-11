@@ -34,7 +34,7 @@ At the heart of `@parcel-ssr` is the `render` function:
 // We use React in this example but we could use any other view library (Vue, RNW, ...)
 import React, {useState} from 'react';
 
-const HelloPage = ({name}) => (
+const Hello = ({name}) => (
   <div>
     Hello {name}
     <Counter/>
@@ -53,15 +53,14 @@ function Counter() {
   );
 }
 
-export default HelloPage;
+export default Hello;
 ~~~
 
 ~~~js
 const render = require('@parcel-ssr/render');
 
-// The `render` function:
 const htmlBody = render(
-  'HelloPage',
+  'Hello',
   {
     props: {name: 'John'},
     // Set `doNoHydrate: true` for non-interactive pages. (The page is rendered only to HTML.)
@@ -74,9 +73,9 @@ assert(htmlBody===[
   'Hello John',
   '<div>0<button>Click me</button></div>'
   '</div>',
-  // The `HelloPage-hydrate.js` script hydrates the page, enabling interactivity
+  // The `Hello-hydrate.js` script hydrates the page, enabling interactivity
   // such as `<Counter/>`, a like button, a date picker, ...
-  '<script src="/HelloPage-hydrate.js"></script>',
+  '<script src="/Hello-hydrate.js"></script>',
 ].join(''));
 
 const html = (
