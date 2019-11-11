@@ -30,7 +30,7 @@ At the heart of `@parcel-ssr` is the `render` function:
 
 // We first define a page.
 
-// We use React in this example but we could use any other view library such as Vue, RNW, etc.
+// We use React in this example but we could use any other view library (Vue, RNW, etc.)
 import React, {useState} from 'react';
 
 const HelloPage = ({name}) => (
@@ -85,10 +85,10 @@ const html = (
 );
 ~~~
 
-The `render` function uses two functions `renderToHtml` and `renderToDom` that *you* define.
+The `render` function uses two functions, `renderToHtml` and `renderToDom`, that *you* define.
 This gives you
 full control over how your pages are rendered
-and allows you to use `@parcel-srr` with any view library/tool you want.
+and allows you to use `@parcel-srr` with any view and tool you want.
 
 ~~~js
 // render/renderToDom.js
@@ -132,6 +132,7 @@ To achieve SSR, simply use the `render` function with your server's router:
 ~~~js
 // server/index.js
 
+// We use Express in this example but we could use any other server framework (Koa, Hapi, etc.)
 const express = require('express');
 const render = require('@parcel-ssr/render');
 
