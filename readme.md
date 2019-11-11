@@ -1,8 +1,8 @@
 # `@parcel-ssr`
 
-`@parcel-ssr` is an SSR tool based on Parcel v2. It's tiny, simple, and powerful:
+`@parcel-ssr` is an SSR tool based on Parcel v2. It's tiny, simple and yet powerful:
 - Tiny &mdash; only few hundreds LOCs.
-- Simple &mdash; Parcel Zero-config
+- Simple &mdash; Parcel's zero-config means that build just works. No more complex webpack configurations.
 - Powerful:
   - It works with
     any view library (React, Vue, RNW, Svelte, ...),
