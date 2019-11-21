@@ -15,7 +15,7 @@
     "core-js": "2",
     "parcel": "2.0.0-alpha.3.1"
   },
-  "source": "./pages/Hello.page.js",
+  "source": "./pages/*.page.js",
   "main": "dist/Hello.page.node.js",
   "browser": "dist/Hello.page.browser.js",
   "targets": {
