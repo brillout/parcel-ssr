@@ -1,10 +1,10 @@
 {
   "scripts": {
     "start": "yarn build && yarn start:server",
-    "build": "yarn clean && yarn build:pages",
+    "start:server": "node ./server",
+    "build": "yarn build:clean && yarn build:pages",
     "build:pages": "parcel build .",
-    "clean": "rm -rf ../.parcel-cache/ && rm -rf dist/",
-    "start:server": "node ./server"
+    "build:clean": "rm -rf ../.parcel-cache/ && rm -rf dist/"
   },
   "dependencies": {
     "express": "^4.17.1",
