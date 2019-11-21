@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "core-js": "2",
-    "parcel": "2.0.0-alpha.2.1"
+    "parcel": "2.0.0-alpha.3.1"
   },
   "source": "./pages/Hello.page.js",
   "main": "dist/Hello.page.node.js",
