@@ -3,5 +3,10 @@
   "runtimes": {
     "browser": ["@parcel/runtime-js", "@parcel/runtime-browser-hmr", "parcel-runtime-hydrate"],
     "node": ["@parcel/runtime-js"]
+  },
+  "transforms": {
+    "*.page.js": [
+      "parcel-transformer-static-render"
+    ]
   }
 }
