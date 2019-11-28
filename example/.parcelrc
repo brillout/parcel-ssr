@@ -9,5 +9,11 @@
       "...",
       "parcel-transformer-static-render"
     ]
-  }
+  },
+  "reporters": [
+    "@parcel/reporter-cli",
+    "@parcel/reporter-dev-server",
+    "@parcel/reporter-hmr-server",
+    "parcel-reporter-static-render"
+  ]
 }
