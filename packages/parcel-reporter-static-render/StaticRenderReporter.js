@@ -3,13 +3,22 @@ const path = require('path');
 const assert = require('assert');
 
 module.exports = new Reporter({
-  async transform({event, options, logger}) {
+  async report({event, options, logger}) {
     if( event.type !== 'buildSuccess' ) {
       return;
     }
-    const bundles = event.bundleGraph.getbundles();
+    const bundles = event.bundleGraph.getBundles();
     bundles.forEach(bundle => {
-      console.log(bundle.filePath);
+        console.log(bundle.filePath);
+        const mainEntry = bundle.getMainEntry();
+        console.log('me');
+        console.log(mainEntry.filePath);
+        const entryAssets = bundle.getEntryAssets();
+        console.log('entryAssets');
+        entryAssets.forEach(asset => {
+          console.log(asset.filePath);
+        });
+        console.log('end');
     });
     /*
     assert(isPage(asset));
@@ -49,3 +58,12 @@ function renderToHtmlAsset(asset) {
     */
   };
 }
+
+
+function log(msg) {
+  process.stdout.write('----'+'\n');
+  process.stdout.write(msg+'\n');
+  process.stdout.write('----'+'\n');
+}
+
+
