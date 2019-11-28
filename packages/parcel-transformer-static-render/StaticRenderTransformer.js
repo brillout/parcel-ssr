@@ -2,10 +2,16 @@ const {Transformer} = require('@parcel/plugin');
 const path = require('path');
 const assert = require('assert');
 
-module.exports = new Runtime({
-  transform({asset, options}) {
+module.exports = new Transformer({
+  async transform({asset, options, config}) {
     assert(isPage(asset));
-    return [asset, renderToHtmlAsset(asset)];
+    assert(['node', 'browser'].includes(asset.env.context));
+    if( asset.env.context ==='node' ){
+   // const code = await asset.getCode();
+   // console.log('111'+code+'222333333333333333333333333333333333333333\n\n');
+      return [asset, renderToHtmlAsset(asset)];
+    }
+    return [asset];
   }
 });
 
@@ -22,8 +28,8 @@ function isPage(mainEntry) {
 function renderToHtmlAsset(asset) {
   return {
     type: 'html',
-    code: '<html>transformer plugin test</html>',
-    uniqueKey: asset.uniqueKey+'_transformer-static-render-plugin',
+    code: '<html>transformer plugin test<div>__STATIC_RENDER_TRANSFORMER__</div></html>',
+    uniqueKey: (asset.uniqueKey||asset.id)+'_transformer-static-render-plugin',
     /*
     isIsolated: true,
     isInline: true,

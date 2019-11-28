@@ -6,6 +6,7 @@
   },
   "transforms": {
     "*.page.js": [
+      "...",
       "parcel-transformer-static-render"
     ]
   }
