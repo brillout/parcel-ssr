@@ -11,6 +11,15 @@ module.exports = new Reporter({
     bundles.forEach(bundle => {
         console.log(bundle.filePath);
         const mainEntry = bundle.getMainEntry();
+        const {context} = mainEntry.env;
+        assert(['node', 'browser'].includes(context));
+        assert(['js', 'html'].includes(mainEntry.type), mainEntry.type);
+        /*
+        if( context.type==='js' ){
+          const pageView = require(filePath);
+        }
+        */
+        console.log(context);
         console.log('me');
         console.log(mainEntry.filePath);
         const entryAssets = bundle.getEntryAssets();

@@ -6,7 +6,7 @@ module.exports = new Transformer({
   async transform({asset, options, config}) {
     assert(isPage(asset));
     assert(['node', 'browser'].includes(asset.env.context));
-    if( asset.env.context ==='node' ){
+    if( asset.env.context ==='browser' ){
    // const code = await asset.getCode();
    // console.log('111'+code+'222333333333333333333333333333333333333333\n\n');
       return [asset, renderToHtmlAsset(asset)];
@@ -30,13 +30,11 @@ function renderToHtmlAsset(asset) {
     type: 'html',
     code: '<html>transformer plugin test<div>__STATIC_RENDER_TRANSFORMER__</div></html>',
     uniqueKey: (asset.uniqueKey||asset.id)+'_transformer-static-render-plugin',
-    /*
     isIsolated: true,
     isInline: true,
     meta: {
       type: 'tag',
-      node
+   // node
     }
-    */
   };
 }
