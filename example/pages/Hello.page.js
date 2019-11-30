@@ -1,9 +1,7 @@
 import React from 'react';
-import Time from './Time';
 
-const HelloPage = ({name}) => <>
-  Hello {name}
-  <Time/>
+const HelloPage = () => <>
+  Hello from a Parcel SSR.
 </>;
 
 export default HelloPage;
