@@ -5,7 +5,26 @@ const assert = require('assert');
 module.exports = new Runtime({
   async apply({bundle, options}) {
     const mainEntry = bundle.getMainEntry();
-    if( !isPage(mainEntry) ) {
+    console.log('mm');
+    console.log(mainEntry.filePath);
+    console.log(bundle.type);
+    console.log(mainEntry.type);
+    const assets = bundle.getEntryAssets();
+    assets.forEach(asset => {
+      console.log('ep', asset.type);
+    });
+    console.log('ll', assets.length);
+    console.log('-----------');
+    console.log('-----------');
+    console.log('-----------');
+    console.log('-----------');
+    console.log('-----------');
+    console.log('-----------');
+    console.log('mm2');
+    if( mainEntry.type!=='js' ){
+      return;
+    }
+    if( !isPage(mainEntry) ){
       return;
     }
     // getUserFiles({options});

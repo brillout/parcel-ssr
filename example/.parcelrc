@@ -14,5 +14,9 @@
     "@parcel/reporter-dev-server",
     "@parcel/reporter-hmr-server",
     "parcel-reporter-static-render"
+  ],
+  "trash": [
+    "@parcel/reporter-cli",
+    "bla"
   ]
 }
