@@ -4,11 +4,10 @@ const assert = require('assert');
 
 module.exports = new Transformer({
   async transform({asset, options, config}) {
-    assert(isPage(asset));
     assert(['node', 'browser'].includes(asset.env.context));
     if( asset.env.context ==='browser' ){
    // const code = await asset.getCode();
-   // console.log('111'+code+'222333333333333333333333333333333333333333\n\n');
+      console.log('111'+code+'222333333333333333333333333333333333333333\n\n');
       return [
         asset,
         addHydrationRuntime(asset),
@@ -18,16 +17,6 @@ module.exports = new Transformer({
     return [asset];
   }
 });
-
-function isPage(mainEntry) {
-  const fileName = path.basename(mainEntry.filePath);
-  assert(isPageFile('LandingPage.js')===false);
-  assert(isPageFile('landing.page.js')===true);
-  assert(isPageFile('landing.page.jsx')===true);
-  assert(isPageFile('landing.page.tsx')===true);
-  return isPageFile(fileName);
-  function isPageFile(fileName) { return fileName.split('.').includes('page'); }
-}
 
 function addHydrationRuntime(asset) {
   return {

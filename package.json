@@ -1,12 +1,9 @@
 {
   "scripts": {
   },
-  "devDependencies": {
-    "lerna": "^3.18.3"
-  },
   "workspaces": [
     "example/",
-    "packages/*"
+    "parcel-transformer-romutest/"
   ],
   "private": true
 }

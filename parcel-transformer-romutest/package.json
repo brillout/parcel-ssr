@@ -1,6 +1,6 @@
 {
-  "name": "parcel-reporter-static-render",
-  "main": "./StaticRenderReporter.js",
+  "name": "parcel-transformer-romutest",
+  "main": "./RomutestTransfomer.js",
   "version": "0.0.1",
   "dependencies": {
     "@parcel/plugin": "^2.0.0-alpha.3.1"

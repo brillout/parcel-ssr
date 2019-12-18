@@ -1,23 +1,16 @@
 {
   "scripts": {
-    "start": "yarn build && yarn start:server",
-    "start:server": "node ./server",
     "build": "yarn build:clean && yarn build:pages",
     "build:pages": "parcel build .",
     "build:clean": "rm -rf ../.parcel-cache/ && rm -rf dist/"
   },
-  "dependencies": {
-    "express": "^4.17.1",
-    "react": "16.10.2",
-    "react-dom": "16.10.2"
-  },
   "devDependencies": {
-    "core-js": "2",
+    "core-js": "3",
     "parcel": "2.0.0-alpha.3.1"
   },
-  "source": "./pages/Hello.page.js",
-  "main": "dist/Hello.page.node.js",
-  "browser": "dist/Hello.page.browser.js",
+  "source": "./hello.js",
+  "main": "dist/hello.node.js",
+  "browser": "dist/hello.browser.js",
   "targets": {
     "browser": {
       "includeNodeModules": true,
@@ -37,10 +30,5 @@
   },
   "name": "example",
   "version": "0.0.1",
-  "// This is a temporary hack until support for .parcel-ssr.json is implemented": "",
-  ".parcel-ssr.json": {
-    "renderToDom": "render/renderToDom.js",
-    "renderToHtml": "render/renderToHtml.js"
-  },
   "private": true
 }

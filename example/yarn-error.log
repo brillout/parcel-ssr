@@ -1,0 +1,69 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add --json parcel-transformer-romutest -D
+
+PATH: 
+  /tmp/yarn--1576689365232-0.2462054067097461:/home/romu/code/parcel-ssr/example/node_modules/.bin:/home/romu/.config/yarn/link/node_modules/.bin:/usr/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/lib/node_modules/npm/bin/node-gyp-bin:/usr/bin/node_modules/npm/bin/node-gyp-bin:/tmp/yarn--1576689364467-0.520905556149347:/home/romu/code/parcel-ssr/example/node_modules/.bin:/home/romu/.config/yarn/link/node_modules/.bin:/usr/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/lib/node_modules/npm/bin/node-gyp-bin:/usr/bin/node_modules/npm/bin/node-gyp-bin:/home/romu/.yarn/bin:/home/romu/.config/yarn/global/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/romu/.yarn/bin:/snap/bin
+
+Yarn version: 
+  1.19.1
+
+Node version: 
+  12.2.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.npmjs.org/parcel-transformer-romutest: Not found
+      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66926:18)
+      at Request.self.callback (/usr/share/yarn/lib/cli.js:140564:22)
+      at Request.emit (events.js:196:13)
+      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:141536:10)
+      at Request.emit (events.js:196:13)
+      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:141458:12)
+      at Object.onceWrapper (events.js:284:20)
+      at IncomingMessage.emit (events.js:201:15)
+      at endReadableNT (_stream_readable.js:1130:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:9)
+
+npm manifest: 
+  {
+    "scripts": {
+      "build": "yarn build:clean && yarn build:pages",
+      "build:pages": "parcel build .",
+      "build:clean": "rm -rf ../.parcel-cache/ && rm -rf dist/"
+    },
+    "devDependencies": {
+      "core-js": "2",
+      "parcel": "2.0.0-alpha.3.1"
+    },
+    "source": "./hello.js",
+    "main": "dist/hello.node.js",
+    "browser": "dist/hello.browser.js",
+    "targets": {
+      "browser": {
+        "includeNodeModules": true,
+        "outputFormat": "global",
+        "engines": {
+          "browsers": [
+            "> 1%",
+            "not dead"
+          ]
+        }
+      },
+      "main": {
+        "engines": {
+          "node": ">=10.x"
+        }
+      }
+    },
+    "name": "example",
+    "version": "0.0.1",
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

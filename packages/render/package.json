@@ -1,9 +1,0 @@
-{
-  "name": "@parcel-ssr/render",
-  "main": "./render.js",
-  "version": "0.0.1",
-  "dependencies": {
-    "@brillout/project-files": "^0.4.2",
-    "devalue": "^2.0.0"
-  }
-}
