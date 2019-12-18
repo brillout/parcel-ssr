@@ -9,7 +9,11 @@ module.exports = new Transformer({
     if( asset.env.context ==='browser' ){
    // const code = await asset.getCode();
    // console.log('111'+code+'222333333333333333333333333333333333333333\n\n');
-      return [asset, renderToHtmlAsset(asset)];
+      return [
+        asset,
+        addHydrationRuntime(asset),
+     // renderToHtmlAsset(asset),
+      ];
     }
     return [asset];
   }
@@ -25,13 +29,20 @@ function isPage(mainEntry) {
   function isPageFile(fileName) { return fileName.split('.').includes('page'); }
 }
 
+function addHydrationRuntime(asset) {
+  return {
+    type: 'js',
+    code: 'console.log("hello from hydri");',
+  };
+}
+
 function renderToHtmlAsset(asset) {
   return {
     type: 'html',
     code: '<html>transformer plugin test<div>__STATIC_RENDER_TRANSFORMER__</div></html>',
     uniqueKey: (asset.uniqueKey||asset.id)+'_transformer-static-render-plugin',
-    isIsolated: true,
-    isInline: true,
+    isIsolated: false,
+    isInline: false,
     meta: {
       type: 'tag',
    // node

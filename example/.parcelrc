@@ -1,22 +1,21 @@
 {
   "extends": "@parcel/config-default",
+  "transforms": {
+    "*.page.js": [
+      "...",
+      "parcel-transformer-static-render",
+    ]
+  },
+  /*
   "runtimes": {
     "browser": ["@parcel/runtime-js", "@parcel/runtime-browser-hmr", "parcel-runtime-hydrate"],
     "node": ["@parcel/runtime-js"]
   },
-  "transforms": {
-    "*.page.js": [
-      "...",
-      "parcel-transformer-static-render"
-    ]
-  },
-  "reporters": [
+  "reporters-trash": [
+ // "@parcel/reporter-cli",
     "@parcel/reporter-dev-server",
     "@parcel/reporter-hmr-server",
-    "parcel-reporter-static-render"
+    "parcel-reporter-static-render",
   ],
-  "trash": [
-    "@parcel/reporter-cli",
-    "bla"
-  ]
+  */
 }
