@@ -2,8 +2,8 @@
   "extends": "@parcel/config-default",
   "transforms": {
     "*.js": [
-      "...",
       "parcel-transformer-romutest",
+      "...",
     ]
   },
 }

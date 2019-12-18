@@ -5,23 +5,34 @@ const assert = require('assert');
 module.exports = new Transformer({
   async transform({asset, options, config}) {
     assert(['node', 'browser'].includes(asset.env.context));
-    if( asset.env.context ==='browser' ){
-   // const code = await asset.getCode();
-      console.log('111'+code+'222333333333333333333333333333333333333333\n\n');
-      return [
-        asset,
-        addHydrationRuntime(asset),
-     // renderToHtmlAsset(asset),
-      ];
+    if( asset.env.context !== 'browser' ){
+      return [asset];
     }
-    return [asset];
+    if( ! asset.filePath.endsWith('hello.js') ){
+      return [asset];
+    }
+
+    let code = await asset.getCode();
+    code = code.replace("require('./msg');", "require('./msg2');");
+    log('code', code);
+    return [{
+      type: 'js',
+      code,
+      /*
+      addHydrationRuntime(asset),
+      asset,
+      */
+   // renderToHtmlAsset(asset),
+    }];
   }
 });
 
 function addHydrationRuntime(asset) {
   return {
     type: 'js',
-    code: 'console.log("hello from hydri");',
+    code: "console.log('hello from hydri');",
+  //code: "console.log('hello from hydri'); const ha = require('"+asset.filePath+"'); console.log(ha);",
+  //code: "console.log('hello from hydri'); const ha = require('./hello.js'); console.log(ha);",
   };
 }
 
@@ -37,4 +48,9 @@ function renderToHtmlAsset(asset) {
    // node
     }
   };
+}
+
+function log(...msg) {
+  console.log(...msg);
+  console.log('');
 }
