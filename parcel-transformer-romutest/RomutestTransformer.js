@@ -2,19 +2,30 @@ const {Transformer} = require('@parcel/plugin');
 const path = require('path');
 const assert = require('assert');
 
+let codes = [
+];
+
 module.exports = new Transformer({
   async transform({asset, options, config}) {
+    const {filePath} = asset;
+    log(filePath);
     assert(['node', 'browser'].includes(asset.env.context));
     if( asset.env.context !== 'browser' ){
       return [asset];
     }
-    if( ! asset.filePath.endsWith('hello.js') ){
+    if( ! filePath.endsWith('hello.js') ){
       return [asset];
     }
 
+    /*
+    const moduleSpecifier = './dummy.js';
+    asset.addDependency({moduleSpecifier});
+    */
     let code = await asset.getCode();
     code = code.replace("require('./msg');", "require('./msg2');");
-    log('code', code);
+    code = "require('./msg2.js');";
+    code = "require('./dummy.js');";
+    log(code);
     return [{
       type: 'js',
       code,
@@ -51,6 +62,7 @@ function renderToHtmlAsset(asset) {
 }
 
 function log(...msg) {
+  console.log('');
   console.log(...msg);
   console.log('');
 }
