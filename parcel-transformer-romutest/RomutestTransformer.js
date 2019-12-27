@@ -27,10 +27,12 @@ module.exports = new Transformer({
       return [asset];
     }
 
+    /*
     {
-      const moduleSpecifier = './landing.html';
+      const moduleSpecifier = './virtualHtml.html';
       asset.addDependency({moduleSpecifier});
     }
+    */
 
     //*
     const moduleSpecifier = './dummy.js';

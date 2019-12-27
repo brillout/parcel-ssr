@@ -3,7 +3,8 @@
   },
   "workspaces": [
     "example/",
-    "parcel-transformer-romutest/"
+    "parcel-transformer-romutest/",
+    "parcel-resolver-romutest/"
   ],
   "private": true
 }

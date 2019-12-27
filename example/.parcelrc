@@ -6,4 +6,8 @@
       "...",
     ]
   },
+  "resolvers": [
+    "parcel-resolver-romutest",
+    "..."
+  ],
 }
