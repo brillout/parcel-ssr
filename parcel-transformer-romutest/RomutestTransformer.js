@@ -8,23 +8,40 @@ let codes = [
 module.exports = new Transformer({
   async transform({asset, options, config}) {
     const {filePath} = asset;
+    log('f1');
     log(filePath);
+    log('f2');
     assert(['node', 'browser'].includes(asset.env.context));
     if( asset.env.context !== 'browser' ){
       return [asset];
+    }
+    if( filePath.endsWith('dummy.js') ){
+      let code = await asset.getCode();
+      code = code.replace("REPLACE_ME", "'./hello.js'");
+      return [{
+        type: 'js',
+        code,
+      }];
     }
     if( ! filePath.endsWith('hello.js') ){
       return [asset];
     }
 
-    /*
+    {
+      const moduleSpecifier = './landing.html';
+      asset.addDependency({moduleSpecifier});
+    }
+
+    //*
     const moduleSpecifier = './dummy.js';
     asset.addDependency({moduleSpecifier});
-    */
+    //*/
     let code = await asset.getCode();
+    /*
     code = code.replace("require('./msg');", "require('./msg2');");
     code = "require('./msg2.js');";
     code = "require('./dummy.js');";
+    */
     log(code);
     return [{
       type: 'js',
