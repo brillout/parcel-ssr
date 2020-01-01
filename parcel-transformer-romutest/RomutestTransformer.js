@@ -27,12 +27,10 @@ module.exports = new Transformer({
       return [asset];
     }
 
-    /*
     {
-      const moduleSpecifier = './virtualHtml.html';
+      const moduleSpecifier = '|romu-test|virtualHtml.html';
       asset.addDependency({moduleSpecifier});
     }
-    */
 
     //*
     const moduleSpecifier = './dummy.js';
